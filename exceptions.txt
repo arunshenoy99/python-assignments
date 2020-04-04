@@ -1,0 +1,104 @@
+To create a new tuple with a single value
+(value, )
+
+
+1 - 0.9 = Gives a value close to 9 as floats are worked as fractions
+
+
+To join a list of strings use
+'char_to_join'.join(list)
+
+
+To convert a list of tuples to dictionary use a dict comprehension
+list = [('name':'arun'), ......]
+dict = {key: value for (key,value) in list }
+
+
+To convert a dict to list of tuples use
+list = [(key, value) for (key, value) in dict.items()]
+
+
+To find indexes in for loop of a list use enumerate
+    for (index, item) in enumerate(list)
+
+
+Any complex data structure(other than numbers, strings and booleans) are copied by reference
+list1 = []
+list2 = list1 # copied by reference ie only address copied
+list3 = list1[:] # copied by value, The colon is called the range selector
+x:y # Start from x to y-1, if x not specified x is 0
+
+
+Shallow copies
+stats = [{ 'name': 'Arun' }, {'age': 29 }]
+copied_stats = stats[:]
+copied_stats[0]['name'] = 'Aru'
+print(stats)
+[{ 'name': 'Aru' }, {'age': 29 }]
+Here the list is copied by value but each complex DS in the list is copied by reference
+To solve this use copied_stats = [stat.copy() for stat in stats]
+
+Strings in python are immutable(we cannot assign new values to a str variable)
+st = 'arun'
+st[0] = 'c'
+We get an error
+
+Formatting a string with :
+funds = 50.03
+'Funds is {:.1f}'.format(funds)
+Gives one digit after decimal
+'Funds is {:10.1f}'.format(funds)
+Gives 10 blank spaces to the left and then 1 digit after decimal
+'Funds is {:<10.1f}'.format(funds)
+Gives 10 blank spaces to the left and then 1 digit after decimal
+'Funds is {:-^10.1f}'.format(funds)
+Gives 10 - to the left and then 1 digit after decimal
+Digits before the decimal are always printed
+
+
+Formatting strings with decimals and lists
+name = 'arun'
+age = 29
+f'I am {name} and my age is {age}'
+Looks at the surrounding and fills the placeholders with required variables
+my_list = [1,2,3,4]
+'My list is {} {} {} {}'.format(*my_list)
+
+Map function
+my_list = [1,2,3,4]
+def multiply(el):
+    return el*2
+list(map(multiply, my_list)) gives
+[2, 4, 6, 8]
+
+
+Lambda functions
+lamda comma separated arguments : return value (without return keyword)
+my_list = [1,2,3,4]
+list(map(lambda el: el * 2, my_list))
+[2, 4, 6, 8]
+Lambda functions are mostly used with reduce and map
+
+Unlimited arguments
+def unlimited_arguments(*args, **keyword_args):
+    print(args)
+    for arg in args:
+        print(arg)
+    for key, argument in keyword_args:
+        print(key, argument)
+unlimited_arguments(1,2,3,4)
+unlimited_arguments(*[1,2,3,4]) 
+unlimited_arguments(1,2,3,4, name='Arun', age=21)
+* Converts the items to a tuple and prints them
+** Converts the named arguments to dictionary
+
+
+Importing ways
+import random
+from random import shuffle
+from random import *
+import random as rn
+from random import shuffle as sf
+
+file modes in python
+r w r+ x a b 
