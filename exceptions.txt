@@ -102,3 +102,14 @@ from random import shuffle as sf
 
 file modes in python
 r w r+ x a b 
+
+To control exports use 
+__all__ = ['List of strings with function names']
+in either __init__.py or in each individual files
+But wherever u use __all__ be sure to import that function there
+dir(module_name) gives the exports from a particular module
+
+To find context of execution use __name__ variable
+__name__ is __main__ when that file is run with python command
+Otherwise we get a module name
+Hence we can use this to restrict execution only to one file
